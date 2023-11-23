@@ -86,6 +86,11 @@ public class MailSenderService {
                     + "<br><img src='img.png'/><br><b>Best Regards</b>";
             helper.setText(content, true);
 
+            FileSystemResource file = new FileSystemResource(new File("img.png"));
+            helper.addAttachment("resim.png", file);
+
+            mailSender.send(message);
+
         }catch (MessagingException e) {
             throw new RuntimeException(e);
         }
