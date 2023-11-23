@@ -11,8 +11,13 @@ public class AppController {
     @Autowired
     MailSenderService service;
 
-    @GetMapping("/")
-    public void sendMessage() {
+    @GetMapping("/text")
+    public void sendTextEmail() {
         service.sendEmail();
+    }
+
+    @GetMapping("/html")
+    public void sendHtmlEmail() {
+        service.sendHtmlEmail();
     }
 }
