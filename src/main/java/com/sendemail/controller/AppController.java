@@ -27,8 +27,8 @@ public class AppController {
     }
 
     @GetMapping("/img")
-    public String sendImageEmail() {
+    public void sendImageEmail() {
         service.sendEmailInlineImage();
-        return "Your image has been sent";
+
     }
 }
