@@ -69,6 +69,25 @@ public class MailSenderService {
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
+    }
 
+    public void sendEmailInlineImage() {
+        try {
+            String from = "cezmi.aktepe@gmail.com";
+            String to = "cezmi.aktepe04@gmail.com";
+            MimeMessage message = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+            helper.setSubject("Here's your picture");
+            helper.setFrom(from);
+            helper.setTo(to);
+
+            String content = "<b>Dear ... </b>,<br><i>Please look at this nice picture:.</i>"
+                    + "<br><img src='img.png'/><br><b>Best Regards</b>";
+            helper.setText(content, true);
+
+        }catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
